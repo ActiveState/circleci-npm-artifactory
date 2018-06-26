@@ -38,10 +38,9 @@ jobs:
 
       # artifactory
       - run: curl -fL https://getcli.jfrog.io | sh
-      - run: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive false
+      - run: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
       - run: rm -rf node_modules/
       - run: ./jfrog rt npmi node --build-name=$CIRCLE_JOB --build-number=$CIRCLE_BUILD_NUM
-      - run: npm test
 
 
 
