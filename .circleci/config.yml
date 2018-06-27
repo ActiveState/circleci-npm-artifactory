@@ -41,6 +41,8 @@ jobs:
       - run: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --password $ARTIFACTORY_PASSWORD --interactive=false
       - run: rm -rf node_modules/
       - run: ./jfrog rt npmi node --build-name=$CIRCLE_JOB --build-number=$CIRCLE_BUILD_NUM
-
+      - run: ./jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
+      - run: ./jfrog rt npmp npm --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+      - run: ./jfrog rt bp circleci-npm-artifactory $CIRCLE_BUILD_NUM
 
 
