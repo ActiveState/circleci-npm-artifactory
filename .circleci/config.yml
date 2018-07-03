@@ -36,7 +36,7 @@ jobs:
       # run tests!
       - run: yarn test
 
-      # connect to artifactory
+      # connect to artifactory on Google Compute Engine 
       - run: curl -fL https://getcli.jfrog.io | sh
       - run: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --password $ARTIFACTORY_PASSWORD --interactive=false
       - run: rm -rf node_modules/
